@@ -1,20 +1,18 @@
-<b>Hello World </b><br>
-
-<i>{{ title }}</i> <!-- interpolação, title é a variável -> app.component.ts-->
-
-
-
-<h2 *ngIf="title == 'Simões'">Sobrenome é: {{ title }}</h2>
-
-<button (click)="novoItem()" class="btn btn-primary">Novo número</button> <!-- eventos -->
-
-<ul>
-  <!--li *ngFor="let item of items">{{ item }}</li-->
-  <li *ngFor="let item of items">
-      <app-todo-item [data]="item"></app-todo-item>
-  </li>
-</ul>
-
 <app-contador></app-contador>
+
+<b>App: {{ contador }}</b><br><br>
+
+<app-contador-botoes></app-contador-botoes>
+<br>
+<br>
+<a routerLink="/">Home</a>
+<a routerLink="/todos">Todos</a>
+<br>
+<router-outlet></router-outlet>
+
+
+
+
+
 
 

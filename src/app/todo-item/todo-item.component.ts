@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
  import { library } from '@fortawesome/fontawesome-svg-core'; 
  import { fas } from '@fortawesome/free-solid-svg-icons'; 
+import { Todo } from 'src/typings/Todo';
  library.add(fas);
 
 @Component({
@@ -11,7 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
- @Input() data;
+ @Input() data: Todo;
  
   constructor() { }
 

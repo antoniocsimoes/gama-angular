@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from './todo.service';
+import { map, debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,20 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Antônio Carlos';
-  items = ['2','3','5','8','9'];
+  contador = 0;
 
+  constructor(public todoService: TodoService){}
+  
   ngOnInit(){ //inicia toda vez que o componente estiver pronto
-    
-   setTimeout(() => {
-      this.title = 'Simões';
-    }, 2000);  
-    
+    this.todoService.contador
+    .pipe(
+      map(x => x * 2), 
+      debounceTime(2000) //ele espera e depois executa tudo
+    )
+    .subscribe(valeu => {this.contador = valeu});   
   }
 
-  novoItem(){
-    const text = prompt('Digite um número: ');
-    this.items.push(text);
-  }
-
+  
 }
