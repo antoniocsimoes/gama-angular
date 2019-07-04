@@ -20,7 +20,9 @@ export class TodoService {
   }
 
 
- 
+  adicionarTodo(todo:Todo){
+    return this.httpClient.post('http://localhost:3000/todos', todo);
+  }
 
   aumentar(){
     this.pContador.next(this.pContador.value + 1);

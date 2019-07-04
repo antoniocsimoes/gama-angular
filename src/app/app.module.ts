@@ -14,11 +14,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CepComponent } from './cep/cep.component';
+import { CepTextoComponent } from './cep-texto/cep-texto.component';
+import {FormsModule } from '@angular/forms';
+import { AddTodoComponent } from './add-todo/add-todo.component';
+import { BoolPipe } from './bool.pipe';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'todos', component: ListaTodosComponent },
-  { path: 'cep/:numero', component: CepComponent}
+  { path: 'cep', component: CepTextoComponent},
+  { path: 'cep/:numero', component: CepComponent},
+  { path: 'todos/add', component: AddTodoComponent}
+  
 ]
 
 library.add(fas);
@@ -31,13 +39,19 @@ library.add(fas);
     ContadorBotoesComponent,
     ListaTodosComponent,
     HomeComponent,
-    CepComponent
+    CepComponent,
+    CepTextoComponent,
+    AddTodoComponent,
+    BoolPipe
+    
+    
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,41 @@
+<div>
+    E-mail: 
+    <input type="email" [(ngModel)]="email" #campoEmail="ngModel" minlength="4" email required>
+    <div *ngIf="campoEmail.errors && campoEmail.touched">
+        <div *ngIf="campoEmail?.errors.minlength">E-mail deve ter no mínimo 4 caracteres!</div>
+        <div *ngIf="campoEmail?.errors.required">E-mail é obrigatório!</div>
+        <div *ngIf="campoEmail?.invalid">E-mail inválido!</div>
+    </div>
+    <b>{{ email }}</b>
+</div>
+<br>
+
+<form #form="ngForm">
+    {{ todo | json }}
+<div>
+    Título 
+    <input type="text" [(ngModel)]="todo.title" #titulo='ngModel' required name="titulo">
+    <div *ngIf="titulo.errors && titulo.touched">
+        <div *ngIf="titulo?.errors.required">Título é obrigatório!</div>
+    </div>
+</div>
+
+<div>
+    Descrição: 
+    <input type="text" [(ngModel)]="todo.description" #descricao='ngModel' required name="descricao">
+    <div *ngIf="descricao.errors && descricao.touched">
+        <div *ngIf="descricao?.errors.required">Descrição é obrigatória!</div>
+    </div>
+</div>
+
+<div>
+    Data: 
+    <input type="date" [(ngModel)]="todo.date" #date="ngModel" required name="date">
+</div>
+
+<div>
+    <input type="checkbox" [(ngModel)]="todo.finished" name="finished">Finalizado? 
+</div>
+
+<button [disabled]="form.invalid" class="btn btn-primary" (click)="enviarTodo()">Enviar</button>
+</form>
