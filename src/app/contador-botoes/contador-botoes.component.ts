@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../todo.service';
+import { TodoService } from '../todo/todo.service';
 
 @Component({
   selector: 'app-contador-botoes',

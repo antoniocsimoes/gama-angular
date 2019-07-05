@@ -1,0 +1,6 @@
+<div>
+    E-mail: <input type="email" placeholder="Registro..." name="register" [(ngModel)]="email" #emailElement='ngModel'>
+    Senha: <input type="password" placeholder="Senha..." name="senha" [(ngModel)]="senha" #senhaElement='ngModel'>
+    Confirmar Senha: <input type="password" placeholder="Confirma senha..." name="confirmarSenha" [(ngModel)]="confirmarSenha" #confirmaSenhaElement='ngModel'>
+    <button class='btn btn-primary' (click)="enviar()">Enviar</button>
+</div>

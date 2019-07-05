@@ -5,9 +5,16 @@
 <app-contador-botoes></app-contador-botoes>
 <br>
 <br-->
+<div *ngIf="email !== ''"> 
+    Olá, {{ email }} <button (click)="logout()">Sair </button>
+</div>
+
 <a routerLink="/">Home  </a>
 <a routerLink="/todos">Todos  </a>
 <a routerLink="/todos/add">Adicionar todo  </a>
+<a routerLink="/cep">Cep  </a>
+<a routerLink="/auth/login">Login  </a>
+<a routerLink="/auth/register">Registro  </a>
 <br>
 <router-outlet></router-outlet>
 
