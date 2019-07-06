@@ -37,6 +37,6 @@ export class AuthService {
   }
 
   logout(){
-
+    this.pUser.next(null);
   }
 }

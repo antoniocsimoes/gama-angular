@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
  import { library } from '@fortawesome/fontawesome-svg-core'; 
  import { fas } from '@fortawesome/free-solid-svg-icons'; 
 import { Todo } from 'src/typings/Todo';
+import { Router } from '@angular/router';
+import {  } from '@angular/core';
  library.add(fas);
 
 @Component({
@@ -13,10 +15,19 @@ import { Todo } from 'src/typings/Todo';
 })
 export class TodoItemComponent implements OnInit {
  @Input() data: Todo;
+ @Output() deleteEvent = new EventEmitter();
  
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  editar(){
+    this.router.navigateByUrl('/todos/' + this.data.id);
+  }
+
+  apagar() {
+    this.deleteEvent.emit(this.data.id);
   }
 
 }

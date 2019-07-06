@@ -22,10 +22,11 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.authService.creatAccount(this.email, this.senha).subscribe((value)=> {
+    this.authService.creatAccount(this.email, this.senha).subscribe((value: any)=> {
         alert('Usuário criado com sucesso');
         console.log(value);
-      })
+        localStorage.setItem('token', value.idToken);
+      });
   }
 
 }

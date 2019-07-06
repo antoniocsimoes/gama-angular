@@ -26,9 +26,10 @@ export class LoginComponent implements OnInit {
          console.log(value);
          localStorage.setItem('token', value.idToken);
          this.authService.setUser({
+           id: value.localId,
            email: value.email,
          });
-       },
+       }),
        (error) => {
          console.log(error);
          switch (error.error.error.message) {
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
              alert('Houve um erro');
              break;
          }
-       });
+       };
       
     }
 
