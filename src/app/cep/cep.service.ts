@@ -9,6 +9,6 @@ export class CepService {
   constructor(private httpClient: HttpClient) { }
 
   getCep(cep:String) {
-    return this.httpClient.get('http://viacep.com.br/ws/' + cep + '/json/');
+    return this.httpClient.get('https://viacep.com.br/ws/' + cep + '/json/');
   }
 }
